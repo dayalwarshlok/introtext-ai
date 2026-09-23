@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   }
 }`;
 
-    const modelsToTry = ['gemini-3.6-flash', 'gemini-2.5-flash', 'gemini-1.5-flash'];
+    const modelsToTry = ['gemini-3.6-flash', 'gemini-2.5-flash', 'gemini-flash-latest'];
     let response: any = null;
     let lastError: any = null;
 
@@ -97,14 +97,19 @@ export async function POST(req: Request) {
     if (error?.status === 400 && error?.message && error.message.includes('API key not valid')) {
       errorMessage = 'Invalid Gemini API Key. Please update your GEMINI_API_KEY in .env.local with a valid key from Google AI Studio.';
       status = 500;
+    } else if (error?.status === 404) {
+      // Model not found or other not-found errors
+      errorMessage = 'Something went wrong, please try again.';
+      status = 404;
     } else if (
       error?.status === 503 ||
       (error?.message && (error.message.includes('UNAVAILABLE') || error.message.includes('overloaded')))
     ) {
       errorMessage = 'IntroText is a bit busy right now (model overloaded). Please try again in a few seconds.';
       status = 503;
-    } else if (error?.message) {
-      errorMessage = error.message;
+    } else {
+      // Fallback for any other errors
+      errorMessage = 'Something went wrong, please try again.';
       status = 500;
     }
 
