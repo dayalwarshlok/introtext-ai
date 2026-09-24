@@ -64,4 +64,4 @@ npm run dev
 - GitHub: [@dayalwarshlok](https://github.com/dayalwarshlok)
 
 ---
-*Built by Shlok Dayalwar*
+*Built by DAYALWAR SHIVA SHLOK*
