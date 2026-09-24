@@ -4,7 +4,8 @@
 
 🔗 **Live Demo:** [introtext-ai.vercel.app](https://introtext-ai.vercel.app)
 
-![IntroText AI Screenshot](./screenshot.png)
+![IntroText AI Screenshot]<img width="1535" height="863" alt="image" src="https://github.com/user-attachments/assets/56ead2e0-9450-4791-a241-7249e73b52b9" />
+
 <!-- Replace with an actual screenshot or GIF of the app in action -->
 
 ## 🚀 About
